@@ -1,0 +1,26 @@
+extends ../layout
+
+block content
+    h2 Creación de Nuevo Cliente
+    form(action="/clientes/create", method="POST")
+        .form-group
+            label Nombre
+            input.form-control(type="text", name="nombre", placeholder="Introduce nombre")
+            label Apellidos
+            input.form-control(type="text", name="apellidos", placeholder="Introduce apellidos")
+            label Dirección
+            input.form-control(type="text", name="direccion", placeholder="Introduce dirección")
+            label Email
+            input.form-control(type="text", name="email", placeholder="Introduce email")
+            label Edad
+            input.form-control(type="number", name="edad", placeholder="Introduce edad")
+            label Sexo
+            input.form-control(type="text", name="sexo", placeholder="Introduce sexo")
+            label Cuota
+            input.form-control(type="number", name="cuota", placeholder="Introduce cuota")
+            label Fecha de Nacimiento
+            input.form-control(type="date", name="fecha_nacimiento", placeholder="Introduce fecha de nacimiento")
+            label DNI
+            input.form-control(type="text", name="dni", placeholder="Introduce DNI")
+            hr
+            input.btn.btn-block.btn-danger(type="submit", value="NO PULSES JAMÁS!")

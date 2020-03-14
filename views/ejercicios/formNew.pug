@@ -1,0 +1,15 @@
+extends ../layout
+
+block content
+    h2 Creación de Nuevo Ejercicio
+    form(action="/ejercicios/create", method="POST")
+        .form-group
+            label Titulo
+            input.form-control(type="text", name="titulo", placeholder="Introduce título de la tortura")
+            label Duración
+            input.form-control(type="text", name="duracion", placeholder="Introduce duración de la tortura")
+            label Repeticiones
+            input.form-control(type="text", name="repeticiones", placeholder="Número de fustigaciones")
+           
+            hr
+            input.btn.btn-block.btn-danger(type="submit", value="NO PULSES JAMÁS!")

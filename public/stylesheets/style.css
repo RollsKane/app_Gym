@@ -1,8 +1,40 @@
-body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+h2 {
+  text-align: center;
+  color: papayawhip;
 }
 
-a {
-  color: #00B7FF;
+label {
+  color: papayawhip;
+  padding: 10px;
+}
+
+.btn {
+  margin: 10px;
+}
+
+input {
+  color: rgb(71, 71, 71);
+}
+
+table tr {
+  color: papayawhip;
+}
+
+table tr:hover {
+  background-color: orangered;
+}
+
+body {
+  background: rgb(2, 0, 36);
+  background: linear-gradient(
+    90deg,
+    rgba(2, 0, 36, 1) 0%,
+    rgba(9, 9, 121, 1) 35%,
+    rgba(0, 212, 255, 1) 100%
+  );
+  color: papayawhip;
+}
+
+p {
+  text-align: center;
 }

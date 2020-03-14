@@ -1,0 +1,29 @@
+extends ../layout
+
+
+    
+
+block content
+    h2.text-center Tabla de Torturas
+
+    table.table
+        thead
+            tr
+                th Titulo
+                th Duración
+                th Repeticiones
+                th Edición
+                                
+        tbody
+            each ejercicio in ejercicios
+                tr(href="/ejercicios/"+ejercicio.id)
+                    td= ejercicio.titulo
+                    td= ejercicio.duracion
+                    td= ejercicio.repeticiones
+                    
+                    td.row
+                        a.btn.btn-primary.btn-sm(href="/ejercicios/"+ejercicio.id) View
+                        a.btn.btn-danger.btn-sm(href="/ejercicios/delete/"+ejercicio.id) Borrar
+
+
+

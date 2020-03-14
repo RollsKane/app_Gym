@@ -1,0 +1,40 @@
+extends ../layout
+
+
+    
+
+block content
+    h2.text-center Tabla de Clientes
+
+    table.table
+        thead
+            tr
+                th Nombre
+                th Apellidos
+                th Dirección
+                th Email
+                th Sexo
+                th Fecha de Inscripción
+                th Cuota
+                th Fecha de Nacimiento
+                th DNI
+                th Edición
+                
+        tbody
+            each cliente in clientes
+                tr(href="/clientes/"+cliente.id)
+                    td= cliente.nombre
+                    td= cliente.apellidos
+                    td= cliente.direccion
+                    td= cliente.email
+                    td= cliente.sexo
+                    td= cliente.fecha_inscripcion
+                    td= cliente.cuota
+                    td= cliente.fecha_nacimiento
+                    td= cliente.dni
+                    td.row
+                        a.btn.btn-primary.btn-sm(href="/clientes/"+cliente.id) View
+                        a.btn.btn-danger.btn-sm(href="/clientes/delete/"+cliente.id) Borrar
+
+
+

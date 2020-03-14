@@ -1,0 +1,13 @@
+extends ../layout
+
+block content
+
+    if ejercicio
+        h2 #{ejercicio.titulo}
+     
+        
+        p= ejercicio.duracion
+        p= ejercicio.repeticiones
+       
+    else
+        p ¡No existe ningún ejercicio que concuerde con este ID: #{id}!

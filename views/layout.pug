@@ -2,6 +2,28 @@ doctype html
 html
   head
     title= title
+    link(href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css", rel="stylesheet", integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh", crossorigin="anonymous")
     link(rel='stylesheet', href='/stylesheets/style.css')
+    //- Linkando una hoja CSS en PUG
+    //- link(rel='stylesheet', href='../../stylesheets/students.css')
+
   body
+    h1=title
+    .navBlock
+    .row.col-12
+    a.btn.btn-warning.col1(href="/clientes/") Lista Clientes Locos
+    a.btn.btn-warning.col1(href="/ejercicios/") Lista Torturas
+    a.btn.btn-warning.col1(href="/profesores/") Lista Profesores
+
+    a.btn.btn-danger.col1(href="/clientes/new") Cliente Nuevo
+    a.btn.btn-danger.col1(href="/ejercicios/new") Ejercicio Nuevo
+    a.btn.btn-danger.col1(href="/profesores/new") Profesor Nuevo
+
+    a.btn.btn-primary.col1(href="/api/clientes") API Clientes
+    a.btn.btn-primary.col1(href="/api/ejercicios") API Ejercicios
+    a.btn.btn-primary.col1(href="/api/profesores") API Profesores
+
+
+
+    .container
     block content

@@ -1,0 +1,13 @@
+extends ../layout
+
+block content
+    h2 Creación de Nuevo Profesor
+    form(action="/profesores/create", method="POST")
+        .form-group
+            label Nombre
+            input.form-control(type="text", name="nombre", placeholder="Introduce nombre de profesor")
+            label Años de Experiencia
+            input.form-control(type="number", name="experiencia", placeholder="Introduce número de años de experiencia")
+            
+            hr
+            input.btn.btn-block.btn-danger(type="submit", value="NO PULSES JAMÁS!")

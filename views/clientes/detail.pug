@@ -1,0 +1,16 @@
+extends ../layout
+
+block content
+
+    if cliente
+        h2 #{cliente.nombre} #{cliente.apellidos}
+     
+        p= cliente.direccion
+        p= cliente.email
+        p= cliente.sexo
+        p= cliente.fecha_inscripcion
+        p= cliente.cuota
+        p= cliente.fecha_nacimiento
+        p= cliente.dni
+    else
+        p ¡No existe un cliente que concuerde con este ID: #{id}!

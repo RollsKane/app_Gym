@@ -1,0 +1,28 @@
+extends ../layout
+
+
+    
+
+block content
+    h2.text-center Tabla de Profesores
+
+    table.table
+        thead
+            tr
+                th Nombre
+                th Experiencia
+                th Edición
+
+                                
+        tbody
+            each profesor in profesores
+                tr(href="/profesores/"+profesor.id)
+                    td= profesor.nombre
+                    td= profesor.experiencia
+                    
+                    td.row
+                        a.btn.btn-primary.btn-sm(href="/profesores/"+profesor.id) View
+                        a.btn.btn-danger.btn-sm(href="/profesores/delete/"+profesor.id) Borrar
+
+
+

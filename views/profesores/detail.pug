@@ -1,0 +1,14 @@
+extends ../layout
+
+block content
+
+    if profesor
+        h2 #{profesor.nombre}
+     
+        
+        p= profesor.duracion
+        p= profesor.experiencia
+      
+       
+    else
+        p ¡No existe ningún profesor que concuerde con este ID: #{id}!

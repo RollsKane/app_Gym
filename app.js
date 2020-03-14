@@ -7,6 +7,11 @@ var logger = require("morgan");
 var indexRouter = require("./routes/index");
 var usersRouter = require("./routes/users");
 
+const clientesRouter = require("./routes/clientes");
+const ejerciciosRouter = require("./routes/ejercicios");
+const profesoresRouter = require("./routes/profesores");
+const apiRouter = require("./routes/api");
+
 require("dotenv").config(); // Para poder emplear los Ficheros de Entorno
 
 var app = express();
@@ -24,12 +29,14 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "public")));
 
-const apiRouter = require("./routes/api");
-
 app.use("/", indexRouter);
 app.use("/users", usersRouter);
 
 app.use("/api", apiRouter);
+
+app.use("/clientes", clientesRouter);
+app.use("/ejercicios", ejerciciosRouter);
+app.use("/profesores", profesoresRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
