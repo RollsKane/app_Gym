@@ -19,6 +19,17 @@ router.get("/:ejercicioId", async (req, res) => {
   res.json(ejercicio);
 });
 
+/* MÉTODO EDIT */
+
+// PUT http://localhost:3000/api/ejercicios/edit/:id
+router.put("/edit/:ejercicioId", (req, res) => {
+  Ejercicio.edit(req.body, req.params.id)
+    .then(result => res.json(result))
+    .catch(err => {
+      res.json({ error: "Me cago en tus muelas. Rellena todos los campos" });
+    });
+});
+
 // POST http://localhost:3000/api/ejercicios/
 // Método POST para crear un ejercicio nuevo
 router.post("/", async (req, res) => {

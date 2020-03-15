@@ -18,11 +18,6 @@ router.get("/new", (req, res, next) => {
   res.render("profesores/formNew");
 });
 
-// GET http://localhost:3000/profesores/edit
-router.get("/edit", (req, res, next) => {
-  res.send("ESTOY VIVO!");
-});
-
 // GET http://localhost:3000/profesores/delete/:profesorId   ///// Delete
 router.get("/delete/:profesorId", (req, res) => {
   Profesor.deleteById(req.params.profesorId)
@@ -46,6 +41,17 @@ router.get("/:profesorId", (req, res) => {
   Profesor.getById(req.params.profesorId)
     .then(profesor => {
       res.render("profesores/detail", { profesor: profesor });
+    })
+    .catch(err => {
+      console.log(err);
+    });
+});
+
+/* MÉTODO EDIT */
+router.put("/edit/:profesorId", (req, res) => {
+  Profesor.edit(req.body, req.params.profesorId)
+    .then(profesor => {
+      res.render("profesores/formEdit", { profesor: profesor });
     })
     .catch(err => {
       console.log(err);

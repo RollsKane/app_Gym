@@ -18,11 +18,6 @@ router.get("/new", (req, res, next) => {
   res.render("clientes/formNew");
 });
 
-// // GET http://localhost:3000/clientes/edit
-// router.get("/edit", (req, res, next) => {
-//   res.send("ESTOY VIVO!");
-// });
-
 // GET http://localhost:3000/clientes/delete/:clienteId   ///// Delete
 router.get("/delete/:clienteId", (req, res) => {
   Cliente.deleteById(req.params.clienteId)
@@ -51,6 +46,19 @@ router.get("/:clienteId", (req, res) => {
       console.log(err);
     });
 });
+
+/* MÉTODO EDIT */
+router.put("/edit/:clienteId", (req, res) => {
+  Cliente.edit(req.body, req.params.clienteId)
+    .then(cliente => {
+      res.render("clientes/formEdit", { cliente: cliente });
+    })
+    .catch(err => {
+      console.log(err);
+    });
+});
+
+/* MÉTODO CREATE */
 
 // POST http://localhost:3000/clientes/create
 router.post("/create", async (req, res, next) => {

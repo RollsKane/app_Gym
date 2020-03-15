@@ -52,6 +52,21 @@ router.get("/:ejercicioId", (req, res) => {
     });
 });
 
+/* MÉTODO EDIT */
+router.patch("/edit/:ejercicioId", async (req, res) => {
+  try {
+    const result = await Ejercicio.edit({
+      titulo: req.body.titulo,
+      duracion: req.body.duracion,
+      repeticiones: req.body.repeticiones,
+      id: req.params.Id
+    });
+    res.render("ejercicios/formEdit", { ejercicio: ejercicio });
+  } catch (err) {
+    console.log(err);
+  }
+});
+
 // POST http://localhost:3000/ejercicios/create
 router.post("/create", async (req, res, next) => {
   console.log(req.body);

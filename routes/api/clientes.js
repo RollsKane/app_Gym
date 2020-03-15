@@ -19,6 +19,17 @@ router.get("/:clienteId", async (req, res) => {
   res.json(cliente);
 });
 
+/* MÉTODO EDIT */
+
+// PUT http://localhost:3000/api/clientes/edit/:id
+router.put("/edit/:clienteId", (req, res) => {
+  Cliente.editById(req.body, req.params.id)
+    .then(result => res.json(result))
+    .catch(err => {
+      res.json({ error: "Me cago en tus muelas. Rellena todos los campos" });
+    });
+});
+
 // POST http://localhost:3000/api/clientes/
 // Método POST para crear un clientes nuevo
 router.post("/", async (req, res) => {

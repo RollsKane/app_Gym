@@ -12,11 +12,22 @@ router.get("/", async (req, res) => {
   res.json(rows);
 });
 
-// GET http://localhost:3000/api/profesors/:profesorId
+// GET http://localhost:3000/api/profesores/:profesorId
 // Método GET para conseguir un solo profesor con la Api
 router.get("/:profesorId", async (req, res) => {
   const profesor = await Profesor.getById(req.params.profesorId);
   res.json(profesor);
+});
+
+/* MÉTODO EDIT */
+
+// PUT http://localhost:3000/api/profesores/edit/:id
+router.put("/edit/:profesorId", (req, res) => {
+  Profesor.editById(req.body, req.params.id)
+    .then(result => res.json(result))
+    .catch(err => {
+      res.json({ error: "Me cago en tus muelas. Rellena todos los campos" });
+    });
 });
 
 // POST http://localhost:3000/api/profesores/
