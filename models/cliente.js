@@ -79,9 +79,51 @@ const deleteById = pClienteId => {
   });
 };
 
+const edit = (
+  {
+    nombre,
+    apellidos,
+    direccion,
+    email,
+    edad,
+    sexo,
+    fecha_inscripcion,
+    cuota,
+    fecha_nacimiento,
+    dni,
+    fk_profesor
+  },
+  clienteId
+) => {
+  return new Promise((resolve, reject) => {
+    db.query(
+      "UPDATE clientes SET nombre = ?, apellidos = ?, direccion = ?, email = ?, edad = ?, sexo = ?, fecha_inscripcion = ?, cuota = ?, fecha_nacimiento = ?, dni = ?, fk_profesor = ? WHERE id = ?",
+      [
+        nombre,
+        apellidos,
+        direccion,
+        email,
+        edad,
+        sexo,
+        fecha_inscripcion,
+        cuota,
+        fecha_nacimiento,
+        dni,
+        fk_profesor,
+        clienteId
+      ],
+      (err, result) => {
+        if (err) return reject(err);
+        resolve(result);
+      }
+    );
+  });
+};
+
 module.exports = {
   getAll: getAll,
   getById: getById,
   create: create,
-  deleteById: deleteById
+  deleteById: deleteById,
+  edit: edit
 };

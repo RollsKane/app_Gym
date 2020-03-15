@@ -1,0 +1,23 @@
+extends ../layout
+
+block content
+  h2 Edición del Profesor {{ profesor.nombre }}
+
+  // FORMULARIO
+
+  form(action='/profesores/update' method='POST')
+    .form-group
+      label Nombre
+      input.form-control(type='text' name='nombre' value='{{ profesor.nombre }}')
+    .form-group
+      label Experiencia
+      input.form-control(type='number' name='apellidos' value='{{ profesor.apellidos }}')
+    
+    
+      
+    input(type='hidden' name='profesorId' value='{{profesor.id}}')
+
+    input.btn.btn-block.btn-primary(type='submit' value='Enviar')
+
+  
+

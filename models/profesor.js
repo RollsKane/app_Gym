@@ -58,9 +58,23 @@ const deleteById = pProfesorId => {
   });
 };
 
+const edit = ({ nombre, experiencia }, profesorId) => {
+  return new Promise((resolve, reject) => {
+    db.query(
+      "UPDATE profesores SET nombre = ?, experiencia = ? WHERE id = ?",
+      [nombre, experiencia, profesorId],
+      (err, result) => {
+        if (err) return reject(err);
+        resolve(result);
+      }
+    );
+  });
+};
+
 module.exports = {
   getAll: getAll,
   getById: getById,
   create: create,
-  deleteById: deleteById
+  deleteById: deleteById,
+  edit: edit
 };

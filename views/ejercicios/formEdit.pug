@@ -1,0 +1,26 @@
+extends ../layout
+
+block content
+  h2 Edición del Ejercicio {{ ejercicio.nombre }}
+
+  // FORMULARIO
+
+  form(action='/ejercicios/update' method='POST')
+    .form-group
+      label Titulo
+      input.form-control(type='text' name='titulo' value='{{ ejercicio.titulo }}')
+    .form-group
+      label Duracion
+      input.form-control(type='number' name='duracion' value='{{ ejercicio.duracion }}')
+    .form-group
+      label Repeticiones
+      input.form-control(type='number' name='repeticiones' value='{{ ejercicio.repeticiones }}')
+    
+    
+      
+    input(type='hidden' name='ejercicioId' value='{{ejercicio.id}}')
+
+    input.btn.btn-block.btn-primary(type='submit' value='Enviar')
+
+  
+
